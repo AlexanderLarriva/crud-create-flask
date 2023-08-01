@@ -2,12 +2,14 @@ from urllib.parse import urljoin
 
 import requests
 
-BASE_URL = 'http://localhost:8080'
+BASE_URL = 'http://localhost:8000'
+
 
 def test_form():
     response = requests.get(urljoin(BASE_URL, '/posts/new'))
     assert 'title' in response.text
     assert 'body' in response.text
+
 
 def test_wrong_post_data():
     data = {'title': '', 'body': ''}
@@ -26,6 +28,7 @@ def test_wrong_post_data():
     assert response.status_code == 422
     assert "Can&#39;t be blank" in response.text
     assert 'Barbaz' in response.text
+
 
 def test_create_posts():
     with requests.Session() as s:

@@ -11,19 +11,13 @@
     <div>
       <label>
         title
-        <input type="text" class="input-field" name="title" value="{{ post.title|default('', true) }}">
-        {% if 'title' in errors %}
-          <div>{{ errors['title'] }}</div>
-        {% endif %}
+        <input type="text" class="input-field" required name="title">
       </label>
     </div>
     <div>
       <label>
         body
-        <input type="text" class="input-field" name="body" value="{{ post.body|default('', true) }}">
-        {% if 'body' in errors %}
-          <div>{{ errors['body'] }}</div>
-        {% endif %}
+        <input type="text" class="input-field" required name="body">
       </label>
     </div>
     <input type="submit" class="submit-button" value="Create post">
